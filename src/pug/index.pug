@@ -1,0 +1,28 @@
+extends layouts/LayoutTheme
+include mixins/common/PartnershipCorroboration
+include mixins/home/landing/HeroHeader
+include mixins/home/landing/Brands
+include mixins/home/landing/Partnership
+include mixins/home/landing/Corroboration
+include mixins/home/landing/Testimonial
+include mixins/home/landing/Cta
+include mixins/home/landing/Faq
+include mixins/home/landing/CtaTwo
+include mixins/home/landing/Footer
+
+
+append variables
+  - var currentPage = 'index'
+
+prepend scripts
+  
+append content
+  +HeroHeader
+  +Brands
+  +Partnership
+  +Corroboration
+  +Testimonials
+  +Cta
+  +Faqs
+  +CtaTwo
+  +Footer

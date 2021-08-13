@@ -1,0 +1,73 @@
+mixin FooterList(...items)
+  each item in items
+    li.mb-2
+      a.text-1100.text-decoration-none(href='#!')
+        =item
+
+mixin Footer
+  +Section
+    .row.flex-center.mt-5
+      .col-lg-6
+        h4.fw-bold For more, Subscribe now
+        p.fs-1 Stay updated and work accordingly 
+      .col-lg-6.d-flex.justify-content-lg-end.mb-4
+        form.row.row.row-cols-lg-auto.align-items-center
+          .col-8.col-sm-9
+            label.visually-hidden(for='colFormLabel') Username
+            .input-group
+              input#colFormLabel.form-control(type='email' placeholder='Enter email address')
+          .col-4.col-sm-3.text-end
+            button.btn.btn-collab(type='submit') Submit
+    hr.text-200        
+    .row.justify-content-lg-between.circle-blend-right.circle-danger
+      .col-6.col-sm-4.col-lg-auto.mb-3
+        h6.my-4.fw-bold.fs-0 WHY US
+        ul.list-unstyled.mb-md-4.mb-lg-0
+          +FooterList('Channel','Engagement','Scale','Watch Demo')
+
+      .col-6.col-sm-4.col-lg-auto.mb-3
+        h6.my-4.fw-bold.fs-0 PRODUCT
+        ul.list-unstyled.mb-md-4.mb-lg-0
+          +FooterList('Features','Integrations','Enterprise','Solutions')
+      .col-6.col-sm-4.col-lg-auto.mb-3
+        h6.my-4.fw-bold.fs-0 RESOURCES
+        ul.list-unstyled.mb-md-4.mb-lg-0
+          +FooterList('Partners','Developers','Apps','Blogs')
+      .col-6.col-sm-4.col-lg-auto.mb-3
+        h6.my-4.fw-bold.fs-0 COMPANY
+        ul.list-unstyled.mb-md-4.mb-lg-0
+          +FooterList('About Us','Leadership','Investor Relations','News') 
+      .col-6.col-sm-4.col-lg-auto.mb-3
+        h6.my-4.fw-bold.fs-0 PRICING
+        ul.list-unstyled.mb-md-4.mb-lg-0
+          +FooterList('Plans','Paid vs. Free')       
+      .col-6.col-sm-4.col-lg-auto.mb-3
+        h6.my-4.fw-bold.fs-0 FOLLOW
+        ul.list-unstyled.list-inline.my-3
+          li.list-inline-item.me-3
+            a.text-decoration-none(href='#!')
+              img.list-social-icon(src=`${CWD}assets/img/icons/facebook.svg` alt='')
+          li.list-inline-item.me-3
+            a.text-decoration-none(href='#!')
+              img.list-social-icon(src=`${CWD}assets/img/icons/twitter.svg` alt='')
+          li.list-inline-item.me-3
+            a.text-decoration-none(href='#!')
+              img.list-social-icon(src=`${CWD}assets/img/icons/instagram.svg` alt='' )
+          li.list-inline-item
+            a.text-decoration-none(href='#!')
+              img.list-social-icon(src=`${CWD}assets/img/icons/snapchat.svg` alt='' )                                 
+           
+    hr.text-200.mb-0 
+    .row.justify-content-md-between.justify-content-evenly.py-3
+      .col-12.col-sm-8.col-md-6.col-lg-auto.text-center.text-md-start 
+        p.fs-0.my-2.text-400 All rights Reserved 
+          span.fw-bold.text-500 &copy; Your Company, 2021
+      .col-12.col-sm-8.col-md-6
+        p.text-center.text-md-end.text-400  Made with&nbsp;
+          svg.bi.bi-suit-heart-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#FD7D72' viewBox='0 0 16 16')
+            path(d='M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z')
+
+          |&nbsp;by&nbsp;
+          a(href='https://themewagon.com/' target='_blank').fw-bold.text-500 ThemeWagon 
+
+      

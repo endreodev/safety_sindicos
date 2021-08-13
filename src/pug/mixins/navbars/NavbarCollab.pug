@@ -1,0 +1,22 @@
+mixin NavbarCollab
+  nav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3.d-block(data-navbar-on-scroll)
+    .container
+      a.navbar-brand(href='index.html') 
+        img(src=`${CWD}assets/img/gallery/logo.png` alt='').me-3.d-inline-block
+      button.navbar-toggler.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse.border-top.border-lg-0.mt-4.mt-lg-0
+        ul.navbar-nav.me-auto.pt-2.pt-lg-0.font-base
+          li.nav-item.px-2(data-anchor)
+            a.nav-link.fw-bold(aria-current='page', href='#home' class= currentPage === 'index' ? 'active' : false ) Products
+          li.nav-item.px-2(data-anchor)
+            a.nav-link.fw-bold(href='#service') UseCases
+          li.nav-item.px-2(data-anchor)
+            a.nav-link.fw-bold(href='#feature') Developers
+          li.nav-item.px-2(data-anchor)
+            a.nav-link.fw-bold(href='#testimonial') Pricing
+          
+        form.ps-lg-5
+          button.btn.btn-link.text-danger.fw-bold.order-1.order-lg-0(type='button') Sign in
+          a.btn.hover-top.btn-collab(href='#') TRY FOR FREE
+          

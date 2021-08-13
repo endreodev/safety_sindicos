@@ -1,0 +1,14 @@
+
+mixin Brand(image)
+  .col-sm-6.col-lg&attributes(attributes)
+    img(src=`${CWD}assets/img/gallery/${image}`  alt='brands')
+mixin Brands
+  +Section.py-6.bg-soft-warning
+    .row
+      .col-auto.col-lg-12.d-lg-flex.justify-content-center.align-items-center.justify-content-lg-between&attributes(attributes)
+        img(src=`${CWD}assets/img/gallery/netflix.png` height="28" alt='brands').m-2
+        img(src=`${CWD}assets/img/gallery/facebook.png` height="30" alt='brands').m-2
+        img(src=`${CWD}assets/img/gallery/freelancer.png` height="38" alt='brands').m-2
+        img(src=`${CWD}assets/img/gallery/mailbluster.png` height="38" alt='brands').m-2
+        img(src=`${CWD}assets/img/gallery/theme-wagon.png` height="38" alt='brands').m-2
+            
