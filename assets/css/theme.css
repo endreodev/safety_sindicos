@@ -287,6 +287,7 @@ figure {
 img,
 svg {
   vertical-align: middle;
+
 }
 
 table {
@@ -404,6 +405,9 @@ legend {
   legend {
     font-size: 1.5rem;
   }
+  .img-top{
+    width:25%;
+  }
 }
 
 legend + * {
@@ -489,6 +493,9 @@ progress {
 @media (min-width: 1200px) {
   .display-1 {
     font-size: 4.29982rem;
+  }
+  .img-top{
+    width:25%;
   }
 }
 
@@ -641,17 +648,27 @@ progress {
   .container, .container-sm {
     max-width: 540px;
   }
+  .img-top{
+    width:25%;
+  }
 }
 
 @media (min-width: 768px) {
   .container, .container-sm, .container-md {
     max-width: 720px;
   }
+  .img-top{
+    width:25%;
+  }
 }
 
 @media (min-width: 992px) {
   .container, .container-sm, .container-md, .container-lg {
     max-width: 960px;
+  }
+
+  .img-top{
+    width:25%;
   }
 }
 
@@ -1001,6 +1018,9 @@ progress {
 }
 
 @media (min-width: 576px) {
+  .img-top{
+    width:25%;
+  }
   .col-sm {
     -webkit-box-flex: 1;
     -ms-flex: 1 0 0%;
@@ -1261,6 +1281,9 @@ progress {
 }
 
 @media (min-width: 768px) {
+  .img-top{
+    width:25%;
+  }
   .col-md {
     -webkit-box-flex: 1;
     -ms-flex: 1 0 0%;
@@ -2473,6 +2496,9 @@ progress {
 }
 
 @media (max-width: 575.98px) {
+  .img-top{
+    width:100%;
+  }
   .table-responsive-sm {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
