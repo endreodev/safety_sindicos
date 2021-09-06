@@ -90,14 +90,6 @@ var grays = {
   black: '#000'
 };
 
-var hasClass = function hasClass(el, className) {
-  !el && false;
-  return el.classList.value.includes(className);
-};
-
-var addClass = function addClass(el, className) {
-  el.classList.add(className);
-};
 
 var getOffset = function getOffset(el) {
   var rect = el.getBoundingClientRect();
@@ -195,10 +187,7 @@ var setItemToStore = function setItemToStore(key, payload) {
   return store.setItem(key, payload);
 };
 
-var getStoreSpace = function getStoreSpace() {
-  var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage;
-  return parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
-};
+
 
 var utils = {
   docReady: docReady,
@@ -206,8 +195,6 @@ var utils = {
   isIterableArray: isIterableArray,
   camelize: camelize,
   getData: getData,
-  hasClass: hasClass,
-  addClass: addClass,
   hexToRgb: hexToRgb,
   rgbaColor: rgbaColor,
   colors: colors,
@@ -220,8 +207,7 @@ var utils = {
   newChart: newChart,
   settings: settings,
   getItemFromStore: getItemFromStore,
-  setItemToStore: setItemToStore,
-  getStoreSpace: getStoreSpace
+  setItemToStore: setItemToStore
 };
 /* -------------------------------------------------------------------------- */
 
@@ -233,19 +219,7 @@ var detectorInit = function detectorInit() {
   var _window = window,
       is = _window.is;
   var html = document.querySelector('html');
-  is.opera() && addClass(html, 'opera');
-  is.mobile() && addClass(html, 'mobile');
-  is.firefox() && addClass(html, 'firefox');
-  is.safari() && addClass(html, 'safari');
-  is.ios() && addClass(html, 'ios');
-  is.iphone() && addClass(html, 'iphone');
-  is.ipad() && addClass(html, 'ipad');
-  is.ie() && addClass(html, 'ie');
-  is.edge() && addClass(html, 'edge');
-  is.chrome() && addClass(html, 'chrome');
-  is.mac() && addClass(html, 'osx');
-  is.windows() && addClass(html, 'windows');
-  navigator.userAgent.match('CriOS') && addClass(html, 'chrome');
+
 };
 /*-----------------------------------------------
 |   Top navigation opacity on scroll
@@ -307,36 +281,6 @@ var navbarInit = function navbarInit() {
       alpha > 0 || utils.hasClass(navbarCollapse, 'show') ? navbar.classList.add(shadowName) : navbar.classList.remove(shadowName);
     }); // Toggle bg class on window resize
 
-    utils.resize(function () {
-      var breakPoint = utils.getBreakpoint(navbar);
-
-      if (window.innerWidth > breakPoint) {
-        navbar.style.backgroundImage = html.scrollTop ? backgroundImage : 'none';
-        navbar.style.transition = 'none';
-      } else if (!utils.hasClass(navbar.querySelector(Selector.NAVBAR_TOGGLER), ClassNames.COLLAPSED)) {
-        navbar.classList.add(bgClassName);
-        navbar.classList.add(shadowName);
-        navbar.style.backgroundImage = backgroundImage;
-      }
-
-      if (window.innerWidth <= breakPoint) {
-        navbar.style.transition = utils.hasClass(navbarCollapse, 'show') ? transition : 'none';
-      }
-    });
-    navbarCollapse.addEventListener(Events.SHOW_BS_COLLAPSE, function () {
-      navbar.classList.add(bgClassName);
-      navbar.classList.add(shadowName);
-      navbar.style.backgroundImage = backgroundImage;
-      navbar.style.transition = transition;
-    });
-    navbarCollapse.addEventListener(Events.HIDE_BS_COLLAPSE, function () {
-      navbar.classList.remove(bgClassName);
-      navbar.classList.remove(shadowName);
-      !html.scrollTop && (navbar.style.backgroundImage = 'none');
-    });
-    navbarCollapse.addEventListener(Events.HIDDEN_BS_COLLAPSE, function () {
-      navbar.style.transition = 'none';
-    });
   }
 };
 /* -------------------------------------------------------------------------- */
