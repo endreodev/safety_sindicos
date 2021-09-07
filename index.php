@@ -12,6 +12,83 @@
   $mail = new PHPMailer(true);
 ?>
 
+
+<?php
+
+//Create an instance; passing `true` enables exceptions
+if(isset($_POST['enviar'])){
+
+try {
+    //Server settings
+  // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.hostinger.com';                   //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'contato@safetysindicos.com.br';        //SMTP username
+    $mail->Password   = 'caloi157';                             //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('contato@safetysindicos.com.br', 'Safety Sindicos Proficionais');
+    $mail->addAddress($_POST['email'], 'Safety Sindicos Proficionais');     //Add a recipient
+    //$mail->addAddress('ellen@example.com');               //Name is optional
+    //$mail->addReplyTo('info@example.com', 'Information');
+    $mail->addCC('endreo.cba@gmail.com');
+    $mail->addCC('contato@safetysindicos.com.br');
+    //$mail->addBCC('bcc@example.com');
+    $html = '
+    <!doctype html>
+    <html lang="pt-br">
+      <head>
+      <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+        <title>Safety Sindicos</title>
+        <style type="text/css">
+          .layout{width: 500px;height: 300px;border-radius: 15pt;}
+          .layout1{width: 500px;height: 150px;border-radius: 15pt;}
+          .center{text-align: center;}
+          .orange{background: darkorange;}
+        </style>
+      </head> <body><table>
+        <tr class="layout1"><td> 
+              </td></tr><tr> <td class="layout orange">
+              <h1 class="center"> Ola! '.$_POST['nome'].' </h1> <br>
+              <h3 class="center">Estamos muito felizes em poder atendelo</h3><br>
+              <h3 class="center">Logo mais entraremos em contato.</h3>
+              <h3 class="center">
+                Foram enviados os seguintes dados: <br>
+                Nome:               '.$_POST['nome'].'  <br>
+                Email:              '.$_POST['email'].'  <br>
+                Telefone:           '.$_POST['telefone'].'  <br>
+                Nome do condominio: '.$_POST['nomecondominio'].'  <br>
+                Cidade:             '.$_POST['cidade'].'  <br>
+              </h3></td></tr></table></body></html>';
+    //Attachments
+    //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Gostariamos de ajudar você';
+    $mail->Body    = $html;
+    $mail->AltBody = 'Tambem prestamos consultoria para sindicos.';
+
+    $mail->send();
+    echo '<br>
+    <div class="alert alert-success text-center" role="alert">
+      <br>
+          SEU EMAIL FOI ENVIADO COM SUCESSO.
+      <br>
+    </div>';
+
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR" dir="ltr">
 
@@ -37,13 +114,11 @@
     <meta name="msapplication-TileImage" content="assets/img/favicons/faicon42.ico">
     <meta name="theme-color" content="#ffffff">
 
-
     <!-- ===============================================-->
     <!--    Stylesheets-->
     <!-- ===============================================-->
     <link href="assets/css/theme.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 
   </head>
 
@@ -233,14 +308,6 @@
               </div>
             </div>
 
-
-
-
-
-
-
-
-
           </div>
         </div>
         <!-- end of .container-->
@@ -248,9 +315,6 @@
       </section>
       <!-- <section> close ============================-->
       <!-- ============================================-->
-
-
-
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
@@ -263,44 +327,82 @@
               <h1 class="fw-bold fs-4 fs-lg-5 fs-xl-6 mb-4 text-primary"> 
                Sempre dispostos ao atendimento
               </h1>
-              <a target="_blank" class="btn hover-top btn-collab col-sm-12" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Solicite uma proposta
-              </a>
             </div>
           </div>
         </div>
         <!-- end of .container-->
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+
+      <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 text-center mb-3">
+              <h6 class="fw-bold fs-4 display-3 lh-sm mb-5">Perguntas Frequentes</h6>
+            </div>
+          </div>
+          <div class="row flex-center">
+            <div class="col-lg-9">
+              <div class="accordion" id="accordionExample">
+
+                <div class="accordion-item border-top">
+                  <h2 class="accordion-header" id="heading2">
+                  <a target="_blank" class="btn hover-top btn-collab col-sm-12" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                      Solicite uma proposta
+                  </a>
+                  </h2>
+                  <div class="accordion-collapse collapse" id="collapse2" aria-labelledby="heading2" data-bs-parent="#accordionExample">
+                    <div class="accordion-body pt-0 px-2">
+
+                      <form action="#" method="post" name="formpost" id="formpost">
+
+                        <div class="form-row">
+                          <div class="form-group col-sm-12">
+                            <label for="inputEmail4">Nome</label>
+                            <input type="text" name="nome" class="form-control" id="inputEmail4" placeholder="Nome" require>
+                          </div>
+                        </div>  
+                        <br>
+                        <div class="form-row">
+                          <div class="form-group col-sm-12">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email" require>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label for="inputAddress">Telefone</label>
+                          <input type="text" class="form-control" name="telefone" id="inputAddress" placeholder="65 9 8899-9999" require>
+                        </div>
+                        <br>
+                        <div class="form-group"> 
+                          <label for="inputAddress2">Nome do condominio</label>
+                          <input type="text" class="form-control" name="nomecondominio" id="inputAddress2" placeholder="Edificio Maria Bonita" require>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label for="inputAddress2">Cidade</label>
+                          <input type="text" class="form-control" name="cidade" id="inputAddress2" placeholder="Cuiabá,Varzea Grande,São Paulo," require>
+                        </div>
+
+                        <br>
+                        <div class="form-group">
+                          <button type="submit" name="enviar" class=" form-control btn hover-top btn-collab btn-sm-12">Enviar Solicitação</button>
+                        </div>
+                      
+                      </form>
+                   
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
 
-      </section>
-      <!-- <section> close ============================-->
       <!-- ============================================-->
 
-
-
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
       <section class="pb-md-10" id="faq">
-
+      <!-- <section> begin ============================
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6 text-center mb-3">
@@ -354,7 +456,7 @@
             </div>
           </div>
         </div>
-        <!-- end of .container-->
+         end of .container-->
 
       </section>
       <!-- <section> close ============================-->
@@ -489,28 +591,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="assets/js/theme.js"></script>
-    
-    <script>
-
-
-      function processForm(e) {
-          if (e.preventDefault) e.preventDefault();
-
-          /* do what you want with the form */
-
-          // You must return false to prevent the default form behavior
-          return false;
-      }
-
-      var form = document.getElementById('cadastraremail');
-        if (form.attachEvent) {
-            form.attachEvent("submit", processForm);
-            console.log('aqui')
-        } else {
-            form.addEventListener("submit", processForm);
-            console.log('agora aqui aqui')
-        }
-    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600;700&amp;family=Montserrat:wght@200;300&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600;700&amp;family=Montserrat:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -519,45 +599,3 @@
 </html>
 
 
-<?php
-
-  //Create an instance; passing `true` enables exceptions
-
-
-  try {
-      //Server settings
-      //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-      $mail->isSMTP();                                            //Send using SMTP
-      $mail->Host       = 'smtp.hostinger.com';                   //Set the SMTP server to send through
-      $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-      $mail->Username   = 'contato@safetysindicos.com.br';        //SMTP username
-      $mail->Password   = 'caloi157';                             //SMTP password
-      $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-      $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-      //Recipients
-      $mail->setFrom('contato@safetysindicos.com.br', 'Mailer');
-      $mail->addAddress('endreo.cba@gmail.com', 'Mailer');     //Add a recipient
-      //$mail->addAddress('ellen@example.com');               //Name is optional
-      //$mail->addReplyTo('info@example.com', 'Information');
-      //$mail->addCC('cc@example.com');
-      //$mail->addBCC('bcc@example.com');
-
-      //Attachments
-      //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-      //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
-      //Content
-      $mail->isHTML(true);                                  //Set email format to HTML
-      $mail->Subject = 'Here is the subject';
-      $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-      $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-     // $mail->send();
-      echo 'Message has been sent';
-
-  } catch (Exception $e) {
-      echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-  }
-
-?>
