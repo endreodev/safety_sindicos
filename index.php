@@ -25,9 +25,7 @@
   </head>
   <body>
     
-    <?php
-      include 'menu.php';
-    ?>
+
     <br><br><br><br>
     <div class="col-sm-12 ">
         <img src="assets2\img\gallery\logo.png" alt="" width="250" class="position-absolute  start-50 translate-middle" >
