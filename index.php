@@ -69,11 +69,11 @@ if(isset($_POST['enviar'])){
 
         $mail->send();
         echo '<br>
-        <div class="alert alert-success text-center" role="alert">
-        <br>
-            SEU EMAIL FOI ENVIADO COM SUCESSO.
-        <br>
-        </div>';
+            <div class="alert alert-success text-center" role="alert">
+            <br>
+                SEU EMAIL FOI ENVIADO COM SUCESSO.
+            <br>
+            </div>';
             sleep(5);
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
@@ -410,30 +410,30 @@ if(isset($_POST['enviar'])){
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="nome" name="nome" type="text" placeholder="Nome*" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">Digite  o nome .</div>
+                                <input class="form-control" id="nome" name="nome" type="text" placeholder="Digite o nome completo*" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Digite o nome completo .</div>
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
-                                <input class="form-control" id="email" name="email" type="email" placeholder="Email*" data-sb-validations="required,email" />
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Digite o seu email*" data-sb-validations="required,email" />
                                 <div class="invalid-feedback" data-sb-feedback="email:required">Email é obrigatório</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Digite o email</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Digite o seu email</div>
                             </div>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="phone" name="telefone" type="tel" placeholder="Telefone*" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">Digite o telefone</div>
+                                <input class="form-control" id="phone" name="telefone" type="tel" placeholder="Digite o seu telefone de contato*" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Digite o seu telefone de contato</div>
                             </div><br>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="nomecondominio" name="nomecondominio" type="text" placeholder="Condominio*" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">Nome do condominio</div>
+                                <input class="form-control" id="nomecondominio" name="nomecondominio" type="text" placeholder=">Digite o nome do condominio*" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Digite o nome do condominio</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" name="mensagem" placeholder="Aqui digite sua mensagem duvida ou outra coisa*" data-sb-validations="required"></textarea>
+                                <textarea class="form-control" id="message" name="mensagem" placeholder="Digite sua mensagem aqui *" data-sb-validations="required"></textarea>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">Digite algo relevante.</div>
                             </div>
                         </div>
@@ -448,24 +448,39 @@ if(isset($_POST['enviar'])){
             </div>
         </section>
         <!-- Footer-->
+        
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">
-                        <a href="https://www.linkedin.com/in/endreo-figueiredo-ab1005138/">Dev Endreo Figueiredo</a>
-                        Copyright &copy; 2021</div>
+                        <a href="https://maps.app.goo.gl/zcs41US9G1YKLV9E8">Map</a>
+                    </div>    
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
                     </div>
+
                     <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#">(65) 3365-0934</a>
                         <a class="link-dark text-decoration-none me-3" href="politicasdeprivacidade.php">Privacy Policy</a>
                      <!--   <a class="link-dark text-decoration-none" href="#!">Terms of Use</a> -->
                     </div>
                 </div>
             </div>
         </footer>
+
+        <footer class="footer py-4" style="bacground-color:gray">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 text-lg-start">
+                        <a href="https://www.linkedin.com/in/endreo-figueiredo-ab1005138/">Dev Endreo Figueiredo</a>
+                        Copyright &copy; 2021</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
 
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
