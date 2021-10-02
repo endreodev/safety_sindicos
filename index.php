@@ -259,11 +259,11 @@
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>
-                                Be Part
+                               Temos 
                                 <br />
-                                Of Our
+                                Otimas
                                 <br />
-                                Story!
+                                Esperiencias!
                             </h4>
                         </div>
                     </li>
@@ -352,7 +352,9 @@
                     </div>
                     
                    
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button>
+                    </div>
                 </form>
             </div>
         </section>
