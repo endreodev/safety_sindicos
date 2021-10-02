@@ -74,7 +74,7 @@ if(isset($_POST['enviar'])){
             SEU EMAIL FOI ENVIADO COM SUCESSO.
         <br>
         </div>';
-
+            sleep(5);
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
