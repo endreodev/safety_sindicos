@@ -433,7 +433,7 @@ if(isset($_POST['enviar'])){
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Aqui digite sua mensagem duvida ou outra coisa*" data-sb-validations="required"></textarea>
+                                <textarea class="form-control" id="message" name="mensagem" placeholder="Aqui digite sua mensagem duvida ou outra coisa*" data-sb-validations="required"></textarea>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">Digite algo relevante.</div>
                             </div>
                         </div>
