@@ -354,7 +354,7 @@ $mail = new PHPMailer(true);
                                 <!-- Phone number input-->
                                 <input class="form-control" id="phone" name="telefone" type="tel" placeholder="Telefone*" data-sb-validations="required" />
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">Digite o telefone</div>
-                            </div>
+                            </div><br>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
                                 <input class="form-control" id="nomecondominio" name="nomecondominio" type="text" placeholder="Condominio*" data-sb-validations="required" />
@@ -372,7 +372,7 @@ $mail = new PHPMailer(true);
                     
                    
                     <div class="text-center">
-                        <button class="btn btn-primary btn-xl text-uppercase" name="enviar" id="submitButton" type="submit">Send Message</button>
+                        <button class="btn btn-primary btn-xl text-uppercase" name="enviar" id="submitButton" type="submit">Enviar email</button>
                     </div>
                 </form>
 
