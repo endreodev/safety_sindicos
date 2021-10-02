@@ -453,7 +453,7 @@ if(isset($_POST['enviar'])){
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">
-                        <a href="https://maps.app.goo.gl/zcs41US9G1YKLV9E8">Map</a>
+                        <a href="https://maps.app.goo.gl/zcs41US9G1YKLV9E8">Endereço</a>
                     </div>    
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
