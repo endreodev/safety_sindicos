@@ -346,7 +346,7 @@ if(isset($_POST['enviar'])){
                                 <br />
                                 Otimas
                                 <br />
-                                Esperiencias!
+                                ExperiênciaS!
                             </h4>
                         </div>
                     </li>
