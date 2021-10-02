@@ -270,12 +270,11 @@
                 </ul>
             </div>
         </section>
-        <!-- Team-->
+        <!-- Team-
         <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Serviços Prestados</h2>
-                    <!--<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
@@ -315,7 +314,7 @@
             </div>
         </section>
     
-        <!-- Contact-->
+         Contact-->
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">
