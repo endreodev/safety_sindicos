@@ -284,7 +284,7 @@ if(isset($_POST['enviar'])){
                             <div class="timeline-heading">
                                 <h4>SÍNDICO PROFISSIONAL</h4>
                                 <h4 class="subheading">Para uma maior eficiência e comodidade na gestão de seu condomínio apresentamos
-                                a Safety Síndico: </h4>
+                                a Safety Síndicos: </h4>
                             </div>
                             <div class="timeline-body"><p class="text-muted">
                                 
