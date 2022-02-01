@@ -30,7 +30,7 @@
 
         <!-- Botao do Whatsapp chama o guri -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <a href="https://wa.me/5565981212085?text=Ola!%20Gostaria%20de%20tirar%20uma%20duvida." 
+        <a href="https://wa.me/5565981212085?text=Ola!%20Gostaria%20de%20fazer%20um%orçamento." 
         style="position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888;
         z-index:1000;" target="_blank">
         <i style="margin-top:16px" class="fab fa-whatsapp"></i>
