@@ -1,13 +1,3 @@
-<?php
-
-    //Create an instance; passing `true` enables exceptions
-    if(isset($_POST['enviar'])){
-
-        include 'protect.php';
-
-    }
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -25,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125196515-1">
@@ -203,6 +194,22 @@
                         <button class="btn btn-primary btn-xl text-uppercase" name="enviar"  type="submit">Enviar email</button>
                     </div>
                 </form>
+
+                <?php
+                    include 'protect.php';
+                    //Create an instance; passing `true` enables exceptions
+                    if(isset($_POST['enviar'])){
+
+                        $post = new ProtectMail();
+                        $post->setNome($_POST['nome']);
+                        $post->setEmail($_POST['email']);
+                        $post->setTelefone($_POST['telefone']);
+                        $post->setNomeCondominio($_POST['nomecondominio']);
+                        $post->setMensagem($_POST['mensagem']);
+                        $post->PostEmail();
+
+                    }
+                ?>
 
             </div>
         </section>
