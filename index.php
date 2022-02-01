@@ -218,18 +218,18 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">
-                        <a href="https://maps.app.goo.gl/zcs41US9G1YKLV9E8">Endereço</a>
+                    <div class="col-lg-4">
+                        <a class="link-dark text-decoration-none me-3" target="_blank" href="https://maps.app.goo.gl/zcs41US9G1YKLV9E8">Endereço</a>
                     </div>    
                     <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" target="_blank" href="https://web.facebook.com/safetysindicos/?_rdc=1&_rdr"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" target="_blank" href="https://www.instagram.com/safetysindicos/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" target="_blank" href="https://www.linkedin.com/in/genilson-ramos-ferreira-282235137/?originalSubdomain=br"><i class="fab fa-linkedin-in"></i></a>
                     </div>
 
                     <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#">(65) 3365-0934</a>
-                        <a class="link-dark text-decoration-none me-3" href="politicasdeprivacidade.php">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none me-3" target="_blank" href="#">(65) 3365-0934</a>
+                        <a class="link-dark text-decoration-none me-3" target="_blank" href="politicasdeprivacidade.php">Privacy Policy</a>
                      <!--   <a class="link-dark text-decoration-none" href="#!">Terms of Use</a> -->
                     </div>
                 </div>
@@ -240,7 +240,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12 text-lg-start">
-                        <a href="https://www.linkedin.com/in/endreo-figueiredo-ab1005138/">Dev Endreo Figueiredo</a>
+                        <a class="link-dark text-decoration-none me-3" target="_blank" href="https://www.linkedin.com/in/endreo-figueiredo-ab1005138/">Dev Endreo Figueiredo</a>
                         Copyright &copy; 2021</div>
                     </div>
                 </div>
