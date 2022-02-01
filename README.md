@@ -7,3 +7,5 @@ Site intitucional - Safety Sindicos Profissionais
 
 Acesse:
 https://safetysindicos.com.br/
+
+Desenvolvido por Endreo Figueiredo.
