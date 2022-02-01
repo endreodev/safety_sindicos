@@ -240,8 +240,11 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12 text-lg-start">
-                        <a class="link-dark text-decoration-none me-3" target="_blank" href="https://www.linkedin.com/in/endreo-figueiredo-ab1005138/">Dev Endreo Figueiredo</a>
-                        Copyright &copy; 2021</div>
+                        <a class="link-dark text-decoration-none me-3" 
+                        target="_blank" href="https://www.linkedin.com/in/endreo-figueiredo-ab1005138/">Dev Endreo Figueiredo
+
+                        <img src="assets/img/logoAlpha.png" class="rounded d-block" alt="..." height="150" width="180" >
+                        </a>
                     </div>
                 </div>
             </div>
