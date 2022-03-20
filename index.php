@@ -175,30 +175,28 @@
                                 <input class="form-control m-2" id="nome" name="nome" type="text" placeholder="Digite o nome completo*" required />
                                 <div class="invalid-feedback" data-sb-feedback="name:required">Digite o nome completo .</div>
                             </div>
+                             <!-- Name input-
                             <div class="form-group">
-                                <!-- Email address input-->
                                 <input class="form-control m-2" id="email" name="email" type="email" placeholder="Digite o seu email*" required />
                                 <div class="invalid-feedback" data-sb-feedback="email:required">Email é obrigatório</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Digite o seu email</div>
                             </div>
                             <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
                                 <input class="form-control m-2" id="phone" name="telefone" type="tel" placeholder="Digite o seu telefone de contato*" required />
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">Digite o seu telefone de contato</div>
                             </div><br>
                             <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
                                 <input class="form-control m-2" id="nomecondominio" name="nomecondominio" type="text" placeholder=">Digite o nome do condominio*" required />
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">Digite o nome do condominio</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Message input-->
                                 <textarea class="form-control m-2" id="message" name="mensagem" placeholder="Digite sua mensagem aqui *" required></textarea>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">Digite algo relevante.</div>
                             </div>
                         </div>
+                        -->
                     </div>
                     
                     <div class="g-recaptcha" data-sitekey="6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w"></div>
