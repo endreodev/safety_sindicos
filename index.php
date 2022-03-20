@@ -244,7 +244,7 @@
                 $captcha_data = $_POST['g-recaptcha-response'];
                 
                 
-                $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=SUA-CHAVE-SECRETA&response=".$captcha_data."&remoteip=".$_SERVER['REMOTE_ADDR']);
+                $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w&response=".$captcha_data."&remoteip=".$_SERVER['REMOTE_ADDR']);
                 
                 var_dump($resposta);
 
