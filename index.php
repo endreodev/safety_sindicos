@@ -244,36 +244,39 @@
                 $captcha_data = $_POST['g-recaptcha-response'];
                 
                 
-                $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w&response=".$captcha_data."&remoteip=".$_SERVER['REMOTE_ADDR']);
-                
-                var_dump($resposta);
+            //    $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w&response=".$captcha_data."&remoteip=".$_SERVER['REMOTE_ADDR']);
+            //    
+            //    var_dump($resposta);
 
 
 
-//               $vetParametros = array (
-//                   "secret" => "6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w",
-//                   "response" => $_POST["g-recaptcha-response"],
-//                   "remoteip" => $_SERVER["REMOTE_ADDR"]
-//               );
-//               # Abre a conexão e informa os parâmetros: URL, método POST, parâmetros e retorno numa string
-//               $curlReCaptcha = curl_init();
-//               curl_setopt($curlReCaptcha, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
-//               curl_setopt($curlReCaptcha, CURLOPT_POST, true);
-//               curl_setopt($curlReCaptcha, CURLOPT_POSTFIELDS, http_build_query($vetParametros));
-//               curl_setopt($curlReCaptcha, CURLOPT_RETURNTRANSFER, true);
-//               # A resposta é um objeto json em uma string, então só decodificar em um array (true no 2º parâmetro)
-//               $vetResposta = json_decode(curl_exec($curlReCaptcha), true);
-//               # Fecha a conexão
-//               curl_close($curlReCaptcha);
-//
-//               var_dump($vetResposta);
-//               # Analisa o resultado (no caso de erro, pode informar os códigos)
-//               if ($vetResposta["success"]) echo "<p>Captcha OK!</p>\n";
-//               else 
-//               {
-//                   echo "$<p>Problemas:</p>\n";
-//                   foreach ($vetResposta["error-codes"] as $strErro) echo "$strTab<p>Erro: $strErro</p>\n";
-//               }
+               $vetParametros = array (
+                   "secret" => "6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w",
+                   "response" => $_POST["g-recaptcha-response"],
+                   "remoteip" => $_SERVER["REMOTE_ADDR"]
+               );
+               # Abre a conexão e informa os parâmetros: URL, método POST, parâmetros e retorno numa string
+               $curlReCaptcha = curl_init();
+               curl_setopt($curlReCaptcha, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+               curl_setopt($curlReCaptcha, CURLOPT_POST, true);
+               curl_setopt($curlReCaptcha, CURLOPT_POSTFIELDS, http_build_query($vetParametros));
+               curl_setopt($curlReCaptcha, CURLOPT_RETURNTRANSFER, true);
+               # A resposta é um objeto json em uma string, então só decodificar em um array (true no 2º parâmetro)
+               $vetResposta = json_decode(curl_exec($curlReCaptcha), true);
+               # Fecha a conexão
+               curl_close($curlReCaptcha);
+
+               var_dump($vetResposta);
+               # Analisa o resultado (no caso de erro, pode informar os códigos)
+               if ($vetResposta["success"]){
+                 echo "<p>Captcha OK!</p>\n";
+               }
+               else 
+               {
+                   echo "$<p>Problemas:</p>\n";
+                   foreach ($vetResposta["error-codes"] as $strErro) 
+                        echo "<p>Erro: $strErro</p>\n";
+               }
 
             }else{
 
