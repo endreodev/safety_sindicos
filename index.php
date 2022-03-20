@@ -175,7 +175,7 @@
                                 <input class="form-control m-2" id="nome" name="nome" type="text" placeholder="Digite o nome completo*" required />
                                 <div class="invalid-feedback" data-sb-feedback="name:required">Digite o nome completo .</div>
                             </div>
-                             <!-- Name input-
+                           
                             <div class="form-group">
                                 <input class="form-control m-2" id="email" name="email" type="email" placeholder="Digite o seu email*" required />
                                 <div class="invalid-feedback" data-sb-feedback="email:required">Email é obrigatório</div>
@@ -196,7 +196,7 @@
                                 <div class="invalid-feedback" data-sb-feedback="message:required">Digite algo relevante.</div>
                             </div>
                         </div>
-                        -->
+                        
                     </div>
                     
                     <div class="g-recaptcha" data-sitekey="6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w"></div>
@@ -235,77 +235,63 @@
         </footer>
 
         <?php
+            
+            //Create an instance; passing `true` enables exceptions
+            if(isset($_POST['enviar'])){
 
-            $lPost = false;
+                if (isset($_POST['g-recaptcha-response'])) {
+                    
+                    $captcha_data = $_POST['g-recaptcha-response'];
+                    
+                    $curl = curl_init();
+                    curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://www.google.com/recaptcha/api/siteverify',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_POSTFIELDS => array (
+                        "secret" => "6Lfw_vQeAAAAAAKkJ9rU37B4TNvnjpyHZaoJ7CR5",
+                        "response" => $_POST["g-recaptcha-response"],
+                        "remoteip" => $_SERVER["REMOTE_ADDR"]
+                    ),
+                    CURLOPT_HTTPHEADER => array(
+                    "Content-Type", "application/x-www-form-urlencoded; charset=utf-8"
+                    ),
+                    ));
 
-            if (isset($_POST['g-recaptcha-response'])) {
-                $captcha_data = $_POST['g-recaptcha-response'];
-                
-                $curl = curl_init();
-                curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://www.google.com/recaptcha/api/siteverify',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => array (
-                    "secret" => "6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w",
-                    "response" => $_POST["g-recaptcha-response"],
-                    "remoteip" => $_SERVER["REMOTE_ADDR"]
-                 ),
-                CURLOPT_HTTPHEADER => array(
-                   'Content-Type: application/json'
-                ),
-                ));
+                    $vetResposta = json_decode(curl_exec($curl), true);
+                    
+                    curl_close($curl);
 
-                $response = curl_exec($curl);
+                    if ($vetResposta["success"]){
+                        
+                        include 'protect.php';
 
-                curl_close($curl);
-                echo $response;
+                        $post = new ProtectMail();
+                        $post->setNome($_POST['nome']);
+                        $post->setEmail($_POST['email']);
+                        $post->setTelefone($_POST['telefone']);
+                        $post->setNomeCondominio($_POST['nomecondominio']);
+                        $post->setMensagem($_POST['mensagem']);
+                        $post->PostEmail();
 
-                # Analisa o resultado (no caso de erro, pode informar os códigos)
-/*
-                if ($vetResposta["success"]){
-                    echo "<p>Captcha OK!</p>\n";
+
+                    }else{
+                        
+                        echo "<p>Problemas Colocar fução dialog :</p>\n";
+                        foreach ($vetResposta["error-codes"] as $strErro) echo "<p>Erro: $strErro</p>\n";
+                    }
+
                 }
-                else 
-                {
-                    echo "$<p>Problemas:</p>\n";
-                    foreach ($vetResposta["error-codes"] as $strErro) 
-                            echo "<p>Erro: $strErro</p>\n";
-                }
-*/
-            }else{
+            
 
+            }//Fim enviar 
 
-
-            }
-
-
-
-
-
-
-
-
-
-
-            //                    include 'protect.php';
-            //                    //Create an instance; passing `true` enables exceptions
-            //                    if(isset($_POST['enviar'])){
-            //
-            //                        $post = new ProtectMail();
-            //                        $post->setNome($_POST['nome']);
-            //                        $post->setEmail($_POST['email']);
-            //                        $post->setTelefone($_POST['telefone']);
-            //                        $post->setNomeCondominio($_POST['nomecondominio']);
-            //                        $post->setMensagem($_POST['mensagem']);
-            //                        $post->PostEmail();
-            //                }
-            ?>
+        ?>
 
         <footer class="footer py-4" style="bacground-color:gray">
             <div class="container">
