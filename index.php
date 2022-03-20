@@ -20,6 +20,10 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125196515-1">
         </script>
+
+        <!--rcaptcha-->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -197,10 +201,11 @@
                         </div>
                     </div>
                     
-                   
+                    <div class="g-recaptcha" data-sitekey="6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w"></div>
                     <div class="text-center">
                         <button class="btn btn-primary btn-xl text-uppercase" name="enviar"  type="submit">Enviar email</button>
                     </div>
+
                 </form>
 
                 <?php
@@ -258,6 +263,7 @@
             </div>
         </footer>
 
+        
 
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
