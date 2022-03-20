@@ -167,35 +167,35 @@
                     <h3 class="section-subheading text-muted">O bom síndico se paga, pois ele gera resultados!</h3>
                 </div>
 
-                <form id="contactForm" method="POST" action="#" >
+                <form id='demo-form' method="POST" action="#" >
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="nome" name="nome" type="text" placeholder="Digite o nome completo*" required />
+                                <input class="form-control m-2" id="nome" name="nome" type="text" placeholder="Digite o nome completo*" required />
                                 <div class="invalid-feedback" data-sb-feedback="name:required">Digite o nome completo .</div>
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
-                                <input class="form-control" id="email" name="email" type="email" placeholder="Digite o seu email*" required />
+                                <input class="form-control m-2" id="email" name="email" type="email" placeholder="Digite o seu email*" required />
                                 <div class="invalid-feedback" data-sb-feedback="email:required">Email é obrigatório</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Digite o seu email</div>
                             </div>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="phone" name="telefone" type="tel" placeholder="Digite o seu telefone de contato*" required />
+                                <input class="form-control m-2" id="phone" name="telefone" type="tel" placeholder="Digite o seu telefone de contato*" required />
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">Digite o seu telefone de contato</div>
                             </div><br>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="nomecondominio" name="nomecondominio" type="text" placeholder=">Digite o nome do condominio*" required />
+                                <input class="form-control m-2" id="nomecondominio" name="nomecondominio" type="text" placeholder=">Digite o nome do condominio*" required />
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">Digite o nome do condominio</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" name="mensagem" placeholder="Digite sua mensagem aqui *" required></textarea>
+                                <textarea class="form-control m-2" id="message" name="mensagem" placeholder="Digite sua mensagem aqui *" required></textarea>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">Digite algo relevante.</div>
                             </div>
                         </div>
@@ -205,24 +205,11 @@
                     <div class="text-center">
                         <button class="btn btn-primary btn-xl text-uppercase" name="enviar"  type="submit">Enviar email</button>
                     </div>
+                    <br/>
 
                 </form>
 
-                <?php
-                    include 'protect.php';
-                    //Create an instance; passing `true` enables exceptions
-                    if(isset($_POST['enviar'])){
 
-                        $post = new ProtectMail();
-                        $post->setNome($_POST['nome']);
-                        $post->setEmail($_POST['email']);
-                        $post->setTelefone($_POST['telefone']);
-                        $post->setNomeCondominio($_POST['nomecondominio']);
-                        $post->setMensagem($_POST['mensagem']);
-                        $post->PostEmail();
-
-                    }
-                ?>
 
             </div>
         </section>
@@ -249,6 +236,74 @@
             </div>
         </footer>
 
+        <?php
+
+            $lPost = false;
+
+            if (isset($_POST['g-recaptcha-response'])) {
+                $captcha_data = $_POST['g-recaptcha-response'];
+                
+                
+                $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=SUA-CHAVE-SECRETA&response=".$captcha_data."&remoteip=".$_SERVER['REMOTE_ADDR']);
+                
+                var_dump($resposta);
+
+
+
+//               $vetParametros = array (
+//                   "secret" => "6Lfw_vQeAAAAAEfiNjUrtitbgWzztqKBR-ZxMx3w",
+//                   "response" => $_POST["g-recaptcha-response"],
+//                   "remoteip" => $_SERVER["REMOTE_ADDR"]
+//               );
+//               # Abre a conexão e informa os parâmetros: URL, método POST, parâmetros e retorno numa string
+//               $curlReCaptcha = curl_init();
+//               curl_setopt($curlReCaptcha, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+//               curl_setopt($curlReCaptcha, CURLOPT_POST, true);
+//               curl_setopt($curlReCaptcha, CURLOPT_POSTFIELDS, http_build_query($vetParametros));
+//               curl_setopt($curlReCaptcha, CURLOPT_RETURNTRANSFER, true);
+//               # A resposta é um objeto json em uma string, então só decodificar em um array (true no 2º parâmetro)
+//               $vetResposta = json_decode(curl_exec($curlReCaptcha), true);
+//               # Fecha a conexão
+//               curl_close($curlReCaptcha);
+//
+//               var_dump($vetResposta);
+//               # Analisa o resultado (no caso de erro, pode informar os códigos)
+//               if ($vetResposta["success"]) echo "<p>Captcha OK!</p>\n";
+//               else 
+//               {
+//                   echo "$<p>Problemas:</p>\n";
+//                   foreach ($vetResposta["error-codes"] as $strErro) echo "$strTab<p>Erro: $strErro</p>\n";
+//               }
+
+            }else{
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+            //                    include 'protect.php';
+            //                    //Create an instance; passing `true` enables exceptions
+            //                    if(isset($_POST['enviar'])){
+            //
+            //                        $post = new ProtectMail();
+            //                        $post->setNome($_POST['nome']);
+            //                        $post->setEmail($_POST['email']);
+            //                        $post->setTelefone($_POST['telefone']);
+            //                        $post->setNomeCondominio($_POST['nomecondominio']);
+            //                        $post->setMensagem($_POST['mensagem']);
+            //                        $post->PostEmail();
+            //                }
+            ?>
+
         <footer class="footer py-4" style="bacground-color:gray">
             <div class="container">
                 <div class="row align-items-center">
@@ -263,8 +318,6 @@
             </div>
         </footer>
 
-        
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -274,5 +327,6 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
     </body>
 </html>
